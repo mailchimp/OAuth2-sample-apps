@@ -1,0 +1,29 @@
+source 'http://rubygems.org'
+
+gem 'rails', '3.1.0'
+gem 'jquery-rails'
+gem 'heroku'
+gem 'thin'
+gem 'foreman'
+gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git', :ref => "70e7552f0770c0896543"
+gem 'gibbon'
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails', "~> 3.1.0"
+  gem 'coffee-rails', "~> 3.1.0"
+  gem 'uglifier'
+end
+
+group :production do
+  gem 'pg'
+end
+
+group :development, :test do
+  # Pretty printed test output
+  gem 'turn', :require => false
+  gem 'sqlite3'
+  gem 'httplog'
+  gem 'ruby-debug19'
+end
