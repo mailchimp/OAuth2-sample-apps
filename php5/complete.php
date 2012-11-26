@@ -72,7 +72,7 @@ And here are the results of the follow-up metadata call:
 <?
 $apikey = $session['access_token'].'-'.$data['dc'];
 $api = new MCAPI($apikey);
-$api->setSecure(true);
+$api->useSecure(true);
 $lists = $api->lists('', 0, 5);
 foreach($lists['data'] as $list){
 ?>
