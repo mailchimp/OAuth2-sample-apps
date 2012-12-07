@@ -501,7 +501,11 @@ abstract class OAuth2Client {
     
     if ($this->debug) print('path = '.$path);
     if ($this->debug) print('curl_opts = '.print_r($opts,true));
-    curl_setopt_array($ch, $opts);
+    //curl_setopt_array($ch, $opts);
+    // silly as it is, the foreach loop increases compatibility
+    foreach ($opts as $key => $value) {
+      curl_setopt($ch, $key, $value);
+    }
     $result = curl_exec($ch);
     if ($this->debug) print("RESULT =\n".$result);
     if (curl_errno($ch) == 60) { // CURLE_SSL_CACERT
